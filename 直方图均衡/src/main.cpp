@@ -2,7 +2,6 @@
 
 #include "DIP.hpp"
 
-//对数变换
 void histogramEqualization(cv::Mat& src, cv::Mat& dst)
 {
     std::uint8_t table[256] = { 0 };
@@ -46,9 +45,9 @@ int main()
 
     histogramEqualization(src, dst);
     cv::equalizeHist(src, ref);
-    cv::imshow("src", src);
-    cv::imshow("dst", dst);
-    cv::imshow("ref", ref);
+    cv::imshow("原图", src);
+    cv::imshow("直方图均衡", dst);
+    cv::imshow("OpenCV自带实现", ref);
     cv::waitKey();
     return 0;
 }

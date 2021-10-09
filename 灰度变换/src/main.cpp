@@ -56,13 +56,13 @@ int main()
     cv::Mat dst;
 
     logVariation(src, dst, 1.0, 1.0);
-    cv::imshow("src", src);
-    cv::imshow("dst", dst);
+    cv::imshow("原图", src);
+    cv::imshow("对数灰度变换（c=1.0, v=1.0）", dst);
     cv::waitKey();
    
     lineVariation(src, dst, { {0.3*255, 0.15*255}, {0.7*255, 0.85*255} });
-    cv::imshow("src", src);
-    cv::imshow("dst", dst);
+    cv::imshow("原图", src);
+    cv::imshow("分段线性变换（(0,0),(0.3*255, 0.15*255),(0.7*255, 0.85*255),(255,255)）", dst);
     cv::waitKey();
     return 0;
 }

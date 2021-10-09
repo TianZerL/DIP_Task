@@ -177,44 +177,49 @@ int main()
     cv::Mat src = cv::imread("F:/Temp/Anime4K/p1.png", cv::IMREAD_GRAYSCALE);
     cv::Mat dst;
     cv::Mat ref;
+    cv::Mat ref2;
 
     meanFilter3x3(src, dst);
     cv::blur(src, ref, { 3,3 });
-    cv::imshow("src", src);
-    cv::imshow("mean", dst);
-    cv::imshow("ref", ref);
+    cv::blur(src, ref2, { 5,5 });
+    cv::imshow("原图", src);
+    cv::imshow("3x3均值滤波", dst);
+    cv::imshow("OpenCV自带均值滤波实现", ref);
+    cv::imshow("5x5均值滤波", ref2);
     cv::waitKey();
 
     medianFilter3x3(src, dst);
     cv::medianBlur(src, ref, 3);
-    cv::imshow("src", src);
-    cv::imshow("median", dst);
-    cv::imshow("mid", ref);
+    cv::medianBlur(src, ref2, 5);
+    cv::imshow("原图", src);
+    cv::imshow("3x3中值滤波", dst);
+    cv::imshow("OpenCV自带中值滤波实现", ref);
+    cv::imshow("5x5中值滤波", ref2);
     cv::waitKey();
 
     maxFilter3x3(src, dst);
-    cv::imshow("src", src);
-    cv::imshow("max", dst);
+    cv::imshow("原图", src);
+    cv::imshow("最大值滤波", dst);
     cv::waitKey();
 
     minFilter3x3(src, dst);
-    cv::imshow("src", src);
-    cv::imshow("min", dst);
+    cv::imshow("原图", src);
+    cv::imshow("最小值滤波", dst);
     cv::waitKey();
 
     sobelFilter(src, dst);
-    cv::imshow("src", src);
-    cv::imshow("sobel", dst);
+    cv::imshow("原图", src);
+    cv::imshow("sobel滤波", dst);
     cv::waitKey();
 
     sobelSharpening(src, dst);
-    cv::imshow("src", src);
-    cv::imshow("sobelSharpen", dst);
+    cv::imshow("原图", src);
+    cv::imshow("sobel锐化", dst);
     cv::waitKey();
 
     laplacianSharpening(src, dst);
-    cv::imshow("src", src);
-    cv::imshow("laplacian", dst);
+    cv::imshow("原图", src);
+    cv::imshow("laplacian锐化", dst);
     cv::waitKey();
     return 0;
 }
